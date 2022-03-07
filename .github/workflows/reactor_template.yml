@@ -74,8 +74,8 @@ jobs:
       - name: Archive template repo CONTRIBUTING.md
         uses: canastro/copy-file-action@master
         with:
-          source: "./.github/CONTRIBUTING.md"
-          target: "./.github/CONTRIBUTING.template.md"
+          source: ".github/CONTRIBUTING.md"
+          target: ".github/CONTRIBUTING.template.md"
 
       - name: Create target repo project CONTRIBUTING.md
         uses: canastro/copy-file-action@master
