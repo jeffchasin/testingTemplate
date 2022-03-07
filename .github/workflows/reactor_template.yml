@@ -5,7 +5,8 @@ on: [push]
 jobs:
   check-version:
     runs-on: ubuntu-latest
-    if: github.repository != 'jeffchasin/reactor-helloworld-extension-edge'
+    if: github.repository != 'jeffchasin/testingTemplate'
+    # if: github.repository != 'jeffchasin/reactor-helloworld-extension-edge'
     steps:
 
 # Deal with the source & target repos
@@ -71,12 +72,6 @@ jobs:
           source: "README.reactor.md"
           target: "README.md"
 
-      - name: Archive template repo CONTRIBUTING.md
-        uses: canastro/copy-file-action@master
-        with:
-          source: ".github/CONTRIBUTING.md"
-          target: ".github/CONTRIBUTING.template.md"
-
       - name: Create target repo project CONTRIBUTING.md
         uses: canastro/copy-file-action@master
         with:
@@ -100,6 +95,6 @@ jobs:
       - name: Commit changes and delete this workflow
         uses: EndBug/add-and-commit@v7
         with:
-          remove: '["./README.template.md", "./README.reactor.md", "./.github/CONTRIBUTING.template.md", "./CONTRIBUTING.reactor.md", "./CODE_OF_CONDUCT.template.md", "./CODE_OF_CONDUCT.reactor.md", "./.github/ISSUE_TEMPLATE.md", "./.github/PULL_REQUEST_TEMPLATE.md", "./.github/workflows/reactor_template.yml"]'
-          message: "Ready to launch! 🚀"
+          remove: '["./README.template.md", "./README.reactor.md", "./CONTRIBUTING.reactor.md", "./CODE_OF_CONDUCT.template.md", "./CODE_OF_CONDUCT.reactor.md", "./.github/ISSUE_TEMPLATE.md", "./.github/PULL_REQUEST_TEMPLATE.md", "./.github/workflows/reactor_template.yml"]'
+          message: "🚀 Ready to launch!"
           tag: 'v1.0.0 --force'
