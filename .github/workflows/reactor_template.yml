@@ -66,11 +66,11 @@ jobs:
           source: "README.md"
           target: "README.template.md"
 
-      - name: Create target repo project README.md
+      - name: Archive template repo CODE_OF_CONDUCT.md
         uses: canastro/copy-file-action@master
         with:
-          source: "README.reactor.md"
-          target: "README.md"
+          source: "CODE_OF_CONDUCT.md"
+          target: "CODE_OF_CONDUCT.template.md"
 
       - name: Create target repo project CONTRIBUTING.md
         uses: canastro/copy-file-action@master
@@ -78,23 +78,23 @@ jobs:
           source: "CONTRIBUTING.reactor.md"
           target: "CONTRIBUTING.md"
 
-      - name: Archive template repo CODE_OF_CONDUCT.md
-        uses: canastro/copy-file-action@master
-        with:
-          source: "CODE_OF_CONDUCT.md"
-          target: "CODE_OF_CONDUCT.template.md"
-
       - name: Create target repo project CODE_OF_CONDUCT.md
         uses: canastro/copy-file-action@master
         with:
           source: "CODE_OF_CONDUCT.reactor.md"
           target: "CODE_OF_CONDUCT.md"
 
+      - name: Create target repo project README.md
+        uses: canastro/copy-file-action@master
+        with:
+          source: "README.reactor.md"
+          target: "README.md"
+
 # Clean up and commit to target repo
 
       - name: Commit changes and delete this workflow
         uses: EndBug/add-and-commit@v7
         with:
-          remove: '["./README.template.md", "./README.reactor.md", "./CONTRIBUTING.reactor.md", "./CODE_OF_CONDUCT.template.md", "./CODE_OF_CONDUCT.reactor.md", "./.github/CONTRIBUTING.md", "./.github/ISSUE_TEMPLATE.md", "./.github/PULL_REQUEST_TEMPLATE.md", "./.github/workflows/reactor_template.yml"]'
+          remove: '["./CONTRIBUTING.reactor.md", "./CODE_OF_CONDUCT.template.md", "./CODE_OF_CONDUCT.reactor.md", "./.github/CONTRIBUTING.md", "./.github/ISSUE_TEMPLATE.md", "./.github/PULL_REQUEST_TEMPLATE.md", "./README.template.md", "./README.reactor.md", "./.github/workflows/reactor_template.yml"]'
           message: "🚀 Ready to launch!"
           tag: 'v1.0.0 --force'
